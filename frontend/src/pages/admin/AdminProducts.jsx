@@ -86,10 +86,10 @@ const AdminProducts = () => {
       images.forEach((img) => fd.append("images", img));
 
       if (editingId) {
-        await api.put(`/products/${editingId}`, fd, { headers: { "Content-Type": "multipart/form-data" } });
+        await api.put(`/products/${editingId}`, fd);
         toast.success("Product updated");
       } else {
-        await api.post("/products", fd, { headers: { "Content-Type": "multipart/form-data" } });
+        await api.post("/products", fd);
         toast.success("Product created");
       }
       setShowModal(false);

@@ -53,10 +53,10 @@ const AdminCategories = () => {
       if (image) fd.append("image", image);
 
       if (editingId) {
-        await api.put(`/categories/${editingId}`, fd, { headers: { "Content-Type": "multipart/form-data" } });
+        await api.put(`/categories/${editingId}`, fd);
         toast.success("Category updated");
       } else {
-        await api.post("/categories", fd, { headers: { "Content-Type": "multipart/form-data" } });
+        await api.post("/categories", fd);
         toast.success("Category created");
       }
       setShowModal(false);
